@@ -5,10 +5,10 @@ clock = pygame.time.Clock()
 
 size = (450, 600)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption('Spotify')
+pygame.display.set_caption('playlist')
 
-background_img = pygame.image.load("../img/2.png")
-image = pygame.image.load("../img/1.png")
+background_img = pygame.image.load("pp2/lab7/music/image/backg.jpg")
+image = pygame.image.load("pp2/lab7/music/image/bg.png")
 music = [f.name for f in os.scandir('.') if f.is_file() and f.name.endswith('.mp3')]
 font = pygame.font.SysFont('Tahoma', 19, True)
 
@@ -62,8 +62,6 @@ while True:
     screen.blit(image, (0, 0))
     screen.blit(surf_1, (33, 395))
 
-    s = font.render(music[i][:-4], True, 'white') 
-    screen.blit(s, (78, 405))
 
     clock.tick(10)
     pygame.display.flip()

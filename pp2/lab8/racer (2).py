@@ -16,7 +16,7 @@ BLUE = (0, 0, 255)
 
 clock = pygame.time.Clock()
 # Background 
-bg = pygame.image.load("img\AnimatedStreet.png")
+bg = pygame.image.load("pp2/lab8/img/AnimatedStreet.png")
 # Font 
 score_font = pygame.font.SysFont("Roboto-Bold .ttf", 50, True, True)
 big_font = pygame.font.SysFont("Roboto-Bold .ttf", 70, True, False)
@@ -31,7 +31,7 @@ STEP = 5
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("img\Player.png")
+        self.image = pygame.image.load("pp2/lab8/img/Player.png")
         self.rect = self.image.get_rect()
         self.rect.center = (160, 520)
 
@@ -52,7 +52,7 @@ class Player(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("img\Enemy.png")
+        self.image = pygame.image.load("pp2/lab8/img/Enemy.png")
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, WIDTH - 40), 0)
 
@@ -69,7 +69,7 @@ class Enemy(pygame.sprite.Sprite):
 class Coin(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.transform.scale(pygame.image.load("img\Coin.png"), (40, 40))
+        self.image = pygame.transform.scale(pygame.image.load("pp2/lab8/img/Coin.png"), (40, 40))
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, WIDTH - 40), -200)
 
@@ -122,7 +122,7 @@ def main():
     enemies.add(E1)
     coins.add(C1)
     # Music 
-    pygame.mixer.music.load("img\wwww.wav")
+    pygame.mixer.music.load("pp2/lab8/img/wwww.wav")
     pygame.mixer.music.play(-1)
     running = True
     # Adding a new User event 
@@ -145,7 +145,7 @@ def main():
         # Collision 
         if pygame.sprite.spritecollideany(P1, enemies):
             pygame.mixer.music.pause()
-            pygame.mixer.Sound("img\crash.wav").play()
+            pygame.mixer.Sound("pp2/lab8/img/crash.wav").play()
             global paused
             paused = True
             fgame_over()
@@ -153,7 +153,7 @@ def main():
                 enemy.kill()
         if pygame.sprite.spritecollideany(P1, coins):
             SCORE += 1
-            pygame.mixer.Sound("img\Coin.mp3").play()
+            pygame.mixer.Sound("pp2/lab8/img/Coin.mp3").play()
             # Deleting and adding New Coin 
             for c in coins:
                 c.kill()
