@@ -1,12 +1,15 @@
 import pygame
 import random
+
 # Initializing
 pygame.init()
+
 # Display
 screen = pygame.display.set_mode((1000, 800))
 clock = pygame.time.Clock()
 menue = pygame.Surface((200, 800))
 menue.fill('skyblue')
+
 # Variables
 p_f = 1
 f = 1
@@ -23,11 +26,11 @@ class Button(pygame.sprite.Sprite):
             self.img = pygame.Surface((70, 70))
             self.c = img
             self.img.fill(self.c)
-        elif self.flag == 2:
+        elif flag == 2:
             self.img = pygame.Surface((70, 70))
             self.img.fill((255, 255, 255))
             pygame.draw.rect(self.img, (0, 0, 0), (15, 15, 40, 40), 2)
-        elif self.flag == 3:
+        elif flag == 3:
             self.img = pygame.Surface((70, 70))
             self.img.fill((255, 255, 255))
             pygame.draw.circle(self.img, (0, 0, 0), (35, 35), 20, 2)
@@ -54,9 +57,9 @@ class Button(pygame.sprite.Sprite):
 
 
 # Loading images of buttons
-pencil = Button(1, "img\pencil.png", 820, 50)
-eraser = Button(1, "img\eraser.png", 910, 50)
-randomizer = Button(4, 'img\erand.png', 820, 160)
+pencil = Button(1, "pp2/lab8/img/pencil.png", 820, 50)
+eraser = Button(1, "pp2/lab8/img/eraser.png", 910, 50)
+randomizer = Button(4, 'pp2/lab8/img/erand.png', 820, 160)
 rec = Button(2, None, 820, 280)
 cir = Button(3, None, 910, 280)
 
@@ -75,7 +78,7 @@ buttons.add(eraser)
 buttons.add(randomizer)
 
 prev, cur = None, None
-screen.fill('white')
+screen.fill('pink')
 
 while running:
     for event in pygame.event.get():
@@ -126,7 +129,6 @@ while running:
                 if prev:
                     pygame.draw.circle(screen, c, (min(prev[0], cur[0]) + abs(prev[0] - cur[0])//2, min(
                         prev[1], cur[1]) + abs(prev[1] - cur[1])//2), abs(prev[0] - cur[0])//2, 2)
-                    prev = cur
 
     screen.blit(menue, (800, 0))
     for o in buttons:

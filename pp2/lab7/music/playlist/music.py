@@ -57,7 +57,7 @@ while True:
                 pygame.mixer.music.set_volume(vol)
 
             is_playing = pygame.mixer.music.get_busy()
-
+  
     screen.blit(background_img, (0, 0))
     screen.blit(image, (0, 0))
     screen.blit(surf_1, (33, 395))
